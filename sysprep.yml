@@ -1,0 +1,14 @@
+---
+- name: Manage Windows
+  hosts: win
+  become: false
+  gather_facts: false
+  tasks:
+  - name: Copy file unattend   
+    win_copy:
+      src: unattend.xml
+      dest: C:\Temp\
+  - name: Run sysprep
+    win_shell: |
+      cd C:\Windows\System32\Sysprep
+      .\sysprep.exe /generalize /quiet /oobe /unattend:"C:/Temp/unattend.xml" /reboot
