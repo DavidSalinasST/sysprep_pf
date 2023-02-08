@@ -11,7 +11,7 @@
   - name: Run sysprep
     win_shell: |
       cd C:\Windows\System32\Sysprep
-      .\sysprep.exe /generalize /quiet /oobe /unattend:"C:/Temp/unattend.xml"
+      .\sysprep.exe /generalize /quiet /oobe /unattend:"C:/Temp/unattend.xml" /reboot
     ignore_errors: yes  
     register: task_result
   - name: Reboot immediately if there was a change.
