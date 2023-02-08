@@ -12,8 +12,8 @@
     win_shell: |
       cd C:\Windows\System32\Sysprep
       .\sysprep.exe /generalize /quiet /oobe /unattend:"C:/Temp/unattend.xml" /reboot
-    ignore_errors: yes  
-    register: task_result
+    register: task_result  
+    ignore_errors: yes     
   - name: Reboot immediately if there was a change.
     shell: "sleep 5 && reboot"
     async: 1
